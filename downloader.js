@@ -8,8 +8,11 @@ const { rejects } = require('assert');
 const YT_BASE = 'https://youtube.com/watch?v=';
 
 module.exports = async (id) => {
+    await download(id);
+}
+
+async function download(id) {
     if (fs.existsSync(`${OUTPUT_FOLDER}/${id}.mp3`)) return; // File already exists
-    let extension = '';
     let vid = ytdl(YT_BASE + id, { filter: 'audioonly', quality: 'highestaudio' })
         .on('info', (info, format) => {
             vid.pipe(fs.createWriteStream(`${TEMP_FOLDER}/${id}.${format.codecs}`))
