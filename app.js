@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.get(`${ROUTE}/`, (req, res) => res.status(200).send('YouTube Downloader'));
 
 app.post(`${ROUTE}/download`, async (req, res) => {
-    await download(req.body.id)
+    await download(req.body.id);
     res.status(200).send('ok');
 });
 

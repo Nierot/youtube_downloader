@@ -4,7 +4,8 @@
   "description": "A simple restful service for offloading youtube download jobs",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "start:watch": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "ffmpeg-normalize": "^1.8.0",
+    "fluent-ffmpeg": "^2.1.2",
     "ytdl-core": "^3.4.1"
   }
 }
